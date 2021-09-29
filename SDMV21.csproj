@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{16CE7EE3-A7B5-465B-BE18-FCB623E3F8CF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SDM</RootNamespace>
+    <AssemblyName>SDM</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Image\sdm.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.114.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.114.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.114.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\SBR.cs" />
+    <Compile Include="Common\SCode.cs" />
+    <Compile Include="Common\SSpec.cs" />
+    <Compile Include="Common\SComponentType.cs" />
+    <Compile Include="Common\SCaller.cs" />
+    <Compile Include="Component\SDtoAttribute.cs" />
+    <Compile Include="Component\SOther.cs" />
+    <Compile Include="Component\SEntityAttribute.cs" />
+    <Compile Include="Component\SExternalSystem.cs" />
+    <Compile Include="Component\SInternalSystem.cs" />
+    <Compile Include="Component\SEvent.cs" />
+    <Compile Include="Component\SUI.cs" />
+    <Compile Include="Component\SEntity.cs" />
+    <Compile Include="Component\SDto.cs" />
+    <Compile Include="Component\SConsumer.cs" />
+    <Compile Include="Component\SProducer.cs" />
+    <Compile Include="Component\SSubscriber.cs" />
+    <Compile Include="Component\SPublisher.cs" />
+    <Compile Include="Component\SStep.cs" />
+    <Compile Include="Component\SJob.cs" />
+    <Compile Include="Component\SController.cs" />
+    <Compile Include="Component\SCallee.cs" />
+    <Compile Include="Component\SDataAccessOperation.cs" />
+    <Compile Include="Component\SDataAccess.cs" />
+    <Compile Include="Component\SBizRuleOperation.cs" />
+    <Compile Include="Component\SBizRule.cs" />
+    <Compile Include="FormCallerCallee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCallerCallee.Designer.cs">
+      <DependentUpon>FormCallerCallee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormComment.Designer.cs">
+      <DependentUpon>FormComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDictionaryNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDictionaryNew.Designer.cs">
+      <DependentUpon>FormDictionaryNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHelp.Designer.cs">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSExternalSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSExternalSystem.Designer.cs">
+      <DependentUpon>FormSExternalSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSOther.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSOther.Designer.cs">
+      <DependentUpon>FormSOther.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSInternalSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSInternalSystem.Designer.cs">
+      <DependentUpon>FormSInternalSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSUI.Designer.cs">
+      <DependentUpon>FormSUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSConsumer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSConsumer.Designer.cs">
+      <DependentUpon>FormSConsumer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSEntity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSEntity.Designer.cs">
+      <DependentUpon>FormSEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSDto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSDto.Designer.cs">
+      <DependentUpon>FormSDto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSProducer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSProducer.Designer.cs">
+      <DependentUpon>FormSProducer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSSubscriber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSSubscriber.Designer.cs">
+      <DependentUpon>FormSSubscriber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSPublisher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSPublisher.Designer.cs">
+      <DependentUpon>FormSPublisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSStep.Designer.cs">
+      <DependentUpon>FormSStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSJob.Designer.cs">
+      <DependentUpon>FormSJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSController.Designer.cs">
+      <DependentUpon>FormSController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSDataAccessOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSDataAccessOperation.Designer.cs">
+      <DependentUpon>FormSDataAccessOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSDataAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSDataAccess.Designer.cs">
+      <DependentUpon>FormSDataAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTreeOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTreeOption.Designer.cs">
+      <DependentUpon>FormTreeOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSAPI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSAPI.Designer.cs">
+      <DependentUpon>FormSAPI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSBizRuleOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSBizRuleOperation.Designer.cs">
+      <DependentUpon>FormSBizRuleOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSBizRule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSBizRule.Designer.cs">
+      <DependentUpon>FormSBizRule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUploader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUploader.Designer.cs">
+      <DependentUpon>FormUploader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project\SWord.cs" />
+    <Compile Include="Project\SProject.cs" />
+    <Compile Include="Component\SComponent.cs" />
+    <Compile Include="Common\SDA.cs" />
+    <Compile Include="FormSBizPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSBizPackage.Designer.cs">
+      <DependentUpon>FormSBizPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSMicroservice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSMicroservice.Designer.cs">
+      <DependentUpon>FormSMicroservice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMyOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMyOption.Designer.cs">
+      <DependentUpon>FormMyOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProjectOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProjectOption.Designer.cs">
+      <DependentUpon>FormProjectOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Component\SAPI.cs" />
+    <Compile Include="Component\SBizPackage.cs" />
+    <Compile Include="Common\SCommon.cs" />
+    <Compile Include="Common\SMessage.cs" />
+    <Compile Include="Component\SMicroservice.cs" />
+    <Compile Include="Common\SMessageBox.cs" />
+    <Compile Include="Project\SUser.cs" />
+    <Compile Include="Project\SPart.cs" />
+    <EmbeddedResource Include="FormCallerCallee.resx">
+      <DependentUpon>FormCallerCallee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormComment.resx">
+      <DependentUpon>FormComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDictionaryNew.resx">
+      <DependentUpon>FormDictionaryNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHelp.resx">
+      <DependentUpon>FormHelp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSExternalSystem.resx">
+      <DependentUpon>FormSExternalSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSOther.resx">
+      <DependentUpon>FormSOther.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSInternalSystem.resx">
+      <DependentUpon>FormSInternalSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSUI.resx">
+      <DependentUpon>FormSUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSConsumer.resx">
+      <DependentUpon>FormSConsumer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSEntity.resx">
+      <DependentUpon>FormSEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSDto.resx">
+      <DependentUpon>FormSDto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSProducer.resx">
+      <DependentUpon>FormSProducer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSSubscriber.resx">
+      <DependentUpon>FormSSubscriber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSPublisher.resx">
+      <DependentUpon>FormSPublisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSStep.resx">
+      <DependentUpon>FormSStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSJob.resx">
+      <DependentUpon>FormSJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSController.resx">
+      <DependentUpon>FormSController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSDataAccessOperation.resx">
+      <DependentUpon>FormSDataAccessOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSDataAccess.resx">
+      <DependentUpon>FormSDataAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTreeOption.resx">
+      <DependentUpon>FormTreeOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSAPI.resx">
+      <DependentUpon>FormSAPI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSBizRuleOperation.resx">
+      <DependentUpon>FormSBizRuleOperation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSBizRule.resx">
+      <DependentUpon>FormSBizRule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSBizPackage.resx">
+      <DependentUpon>FormSBizPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSMicroservice.resx">
+      <DependentUpon>FormSMicroservice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMyOption.resx">
+      <DependentUpon>FormMyOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProjectOption.resx">
+      <DependentUpon>FormProjectOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUploader.resx">
+      <DependentUpon>FormUploader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\code.png" />
+    <Content Include="Image\copy.png" />
+    <Content Include="Image\cut.png" />
+    <Content Include="Image\excel.png" />
+    <Content Include="Image\external_link.png" />
+    <Content Include="Image\go_back.png" />
+    <Content Include="Image\comment_add.png" />
+    <Content Include="Image\api.png" />
+    <Content Include="Image\arrow_down.png" />
+    <Content Include="Image\arrow_left.png" />
+    <Content Include="Image\arrow_right.png" />
+    <Content Include="Image\arrow_up.png" />
+    <Content Include="Image\biz_package.png" />
+    <Content Include="Image\biz_rule.png" />
+    <Content Include="Image\consumer.png" />
+    <Content Include="Image\controller.png" />
+    <Content Include="Image\both_arrow.png" />
+    <Content Include="Image\data_access.png" />
+    <Content Include="Image\dashboard.png" />
+    <Content Include="Image\delete.png" />
+    <Content Include="Image\dto.png" />
+    <Content Include="Image\entity.png" />
+    <Content Include="Image\job.png" />
+    <Content Include="Image\microservice.png" />
+    <Content Include="Image\other.png" />
+    <Content Include="Image\operation.png" />
+    <Content Include="Image\paste.png" />
+    <Content Include="Image\publisher.png" />
+    <Content Include="Image\producer.png" />
+    <Content Include="Image\project.png" />
+    <Content Include="Image\help.png" />
+    <Content Include="Image\help2.png" />
+    <Content Include="Image\subscriber.png" />
+    <Content Include="Image\sdm.ico" />
+    <Content Include="Image\group.png" />
+    <Content Include="Image\logout.png" />
+    <Content Include="Image\org_tree.png" />
+    <Content Include="Image\comment.png" />
+    <Content Include="Image\step.png" />
+    <Content Include="Image\system.png" />
+    <Content Include="Image\ui.png" />
+    <Content Include="Image\user.png" />
+    <Content Include="Image\word.png" />
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.114.0\build\net46\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+</Project>
